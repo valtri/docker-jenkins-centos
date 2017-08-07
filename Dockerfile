@@ -2,7 +2,7 @@ FROM centos:7
 MAINTAINER František Dvořák <valtri@civ.zcu.cz>
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
- && yum install -y java-1.8.0-openjdk-headless openssh-server sudo \
+ && yum install -y git java-1.8.0-openjdk-headless openssh-server sudo \
  && yum clean all \
  && rm -rf /var/cache/yum/*
 
