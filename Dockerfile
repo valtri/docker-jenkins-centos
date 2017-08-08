@@ -8,9 +8,9 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
 
 RUN /usr/sbin/sshd-keygen \
  && useradd -m -d /home/jenkins -s /bin/bash jenkins \
- && echo "jenkins:jenkins" | chpasswd \
  && sed -i '/root\tALL=/a jenkins ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D"]
+COPY docker-entry.sh /
+CMD ["/docker-entry.sh", "/usr/sbin/sshd", "-D"]
